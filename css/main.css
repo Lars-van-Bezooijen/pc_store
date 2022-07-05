@@ -116,7 +116,6 @@ a{
 header {
 	background: lightblue;
 }
-
 .container {
 	width: 70%;
 	margin: 0 auto;
@@ -194,6 +193,26 @@ header {
 	background: #04aea0;
 }
 
+
+
+.header-bottom {
+	color: #fff;
+	background: lightblue;
+	padding: 200px 0;
+}
+.header-bottom .container .width {
+	width: 400px;
+}
+.header-bottom h1 {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0
+
+}
+.p-header {
+	font-size: 24px;
+	font-weight: 800;
+}
 
 
 
