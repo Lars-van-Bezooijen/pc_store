@@ -8,13 +8,13 @@
  */
 
 /* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+	 Base styles: opinionated defaults
+	 ========================================================================== */
 
 html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+	color: #222;
+	font-size: 1em;
+	line-height: 1.4;
 }
 
 /*
@@ -28,13 +28,13 @@ html {
  */
 
 ::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+	background: #b3d4fc;
+	text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+	background: #b3d4fc;
+	text-shadow: none;
 }
 
 /*
@@ -42,12 +42,12 @@ html {
  */
 
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
 }
 
 /*
@@ -62,7 +62,7 @@ iframe,
 img,
 svg,
 video {
-  vertical-align: middle;
+	vertical-align: middle;
 }
 
 /*
@@ -70,9 +70,9 @@ video {
  */
 
 fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+	border: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /*
@@ -80,16 +80,126 @@ fieldset {
  */
 
 textarea {
-  resize: vertical;
+	resize: vertical;
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+	 Author's custom styles
+	 ========================================================================== */
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.p-space {
+	padding: 0 5px;
+}
+a{
+	text-decoration: none;
+	display: flex;
+	color: white;
+}
+.a-underline {
+	border-bottom: 2px solid transparent;
+}
+.a-underline:hover {
+	border-bottom: 2px solid #fff;
+}
+.a-underline.colored {
+	border-bottom: 2px solid transparent;
+	color: #04aea0;
+}
+.a-underline.colored:hover {
+	border-bottom: 2px solid #04aea0;
+}
+header {
+	background: lightblue;
+}
+
+.container {
+	width: 70%;
+	margin: 0 auto;
+}
+.header-top {
+	padding: 12px 0;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header-top img {
+	height: 50px;
+}
+.header-top h1 {
+	margin: 0;
+	padding: 0;
+}
+.header-top .block {
+	display: flex;
+	align-items: center;
+}
+.header-top .block .flex-start{
+	display: flex;
+	align-items: flex-start;
+}
+.header-top .block .info {
+	font-size: 14px;
+	font-weight: bold;
+	display: flex;
+	justify-content: start;
+	margin-left: 50px;
+}
+.header-top .block .info i{
+	font-size: 36px;
+	margin: 0 5px;
+}
+.header-top .block .info.social-media i{
+	font-size: 20px;
+	text-align: center;
+	width: 20px;
+	padding: 5px;
+	border-radius: 50%;
+	color: #04aea0;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+.nav-bar {
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+	border-radius: 5px;
+	justify-content: space-between;
+}
+.nav-bar-list {
+	width: 80%;
+	display: flex;
+	justify-content: flex-start;
+	font-weight: bold;
+	padding: 10px;
+}
+.nav-bar-list a {
+	padding: 5px;
+	margin-right: 16px;	
+}
+.fill {
+	width: 150px;
+	height: auto;
+	border-radius: 0 5px 5px 0;
+	background: #04aea0;
+}
+
+
+
 
 /* ==========================================================================
-   Helper classes
-   ========================================================================== */
+	 Helper classes
+	 ========================================================================== */
 
 /*
  * Hide visually and from screen readers
@@ -97,7 +207,7 @@ textarea {
 
 .hidden,
 [hidden] {
-  display: none !important;
+	display: none !important;
 }
 
 /*
@@ -110,16 +220,16 @@ textarea {
  */
 
 .sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	/* 1 */
 }
 
 /*
@@ -130,13 +240,13 @@ textarea {
 
 .sr-only.focusable:active,
 .sr-only.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	white-space: inherit;
+	width: auto;
 }
 
 /*
@@ -144,7 +254,7 @@ textarea {
  */
 
 .invisible {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 /*
@@ -161,103 +271,103 @@ textarea {
 
 .clearfix::before,
 .clearfix::after {
-  content: " ";
-  display: table;
+	content: " ";
+	display: table;
 }
 
 .clearfix::after {
-  clear: both;
+	clear: both;
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
+	 EXAMPLE Media Queries for Responsive Design.
+	 These examples override the primary ('mobile first') styles.
+	 Modify as content requires.
+	 ========================================================================== */
 
 @media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+	/* Style adjustments for viewports that meet the condition */
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+	/* Style adjustments for high resolution devices */
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+	 Print styles.
+	 Inlined to avoid the additional HTTP request:
+	 https://www.phpied.com/delay-loading-your-print-css/
+	 ========================================================================== */
 
 @media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
 
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
+	*,
+	*::before,
+	*::after {
+		background: #fff !important;
+		color: #000 !important;
+		/* Black prints faster */
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
 
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
 
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
+	a[href]::after {
+		content: " (" attr(href) ")";
+	}
 
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
+	abbr[title]::after {
+		content: " (" attr(title) ")";
+	}
 
-  pre {
-    white-space: pre-wrap !important;
-  }
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+	a[href^="#"]::after,
+	a[href^="javascript:"]::after {
+		content: "";
+	}
 
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
+	pre {
+		white-space: pre-wrap !important;
+	}
 
-  /*
-   * Printing Tables:
-   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
-  thead {
-    display: table-header-group;
-  }
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
 
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
+	/*
+	 * Printing Tables:
+	 * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
+	thead {
+		display: table-header-group;
+	}
 
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
 
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
 }
-
