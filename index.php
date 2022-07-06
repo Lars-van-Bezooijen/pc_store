@@ -11,13 +11,15 @@
 	require_once 'backend/conn.php'; 
 	require_once 'header.php';
 	?>
-	<div class="header-bottom">
+	<div class="banner">
 		<div class="container">
 			<div class="width">
 				<h1>WELCOME TO PC TODAY&trade;</h1>
 				<p class="p-header">Order your PC components today at PC Today</p>
-				<p></p>
-				<a href="<?php echo $base_url; ?>/shop.php">Start Shopping</a>
+				<a href="<?php echo $base_url; ?>/shop.php">
+				<p>Start Shopping</p>
+				<i class="fa-solid fa-angle-right"></i>
+				</a>
 			</div>
 		</div>
     </div>

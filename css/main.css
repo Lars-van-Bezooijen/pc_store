@@ -114,7 +114,8 @@ a{
 	border-bottom: 2px solid #04aea0;
 }
 header {
-	background: lightblue;
+	background: #add8e6;
+	padding-bottom: 24px;
 }
 .container {
 	width: 70%;
@@ -195,19 +196,37 @@ header {
 
 
 
-.header-bottom {
+.banner {
 	color: #fff;
 	background: lightblue;
-	padding: 200px 0;
+	padding: 160px 0;
+	background-image: url("../img/PC_Build.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 80% 0;
 }
-.header-bottom .container .width {
+.banner .container .width {
+	margin-left: 50px;
 	width: 400px;
 }
-.header-bottom h1 {
+.banner h1 {
 	font-size: 16px;
 	font-weight: bold;
 	margin: 0
 
+}
+.banner a {
+	margin-top: 12px;
+	max-width: 40%;
+	padding: 10px 20px;
+	background: #04aea0;
+	border-radius: 5px;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+}
+.banner a i {
+	margin-top: 4px;
 }
 .p-header {
 	font-size: 24px;
