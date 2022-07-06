@@ -93,7 +93,7 @@
 							$admin = true;
 						}
 						?>
-						<a class="a-underline <?php if(isset($admin)){echo "colored";}?>" href="<?php echo $base_url; ?>/admin.php">Admin</a>
+						<a class="a-underline <?php if(isset($admin)){echo "colored";}?>" href="<?php echo $base_url; ?>/admin.php">Admin Panel</a>
 						<?php
 					}
 				}
