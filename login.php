@@ -55,10 +55,6 @@ if(isset($_SESSION['user_id']))
         </div>
     </div>
 
-
-
-
-
     <?php require_once 'scripts.php'; ?>
 </body>
 

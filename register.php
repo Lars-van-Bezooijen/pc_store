@@ -66,7 +66,7 @@ if(isset($_SESSION['user_id']))
                         <div class="login-form">
                             <label for="house_number">House Number</label>
                             <input class="house-num" type="number" id="house_number" name="house_number" required placeholder="house number">
-                            <input class="addition" type="text" id="house_addition" name="house_addition" required placeholder="addition">
+                            <input class="addition" type="text" id="house_addition" name="house_addition" placeholder="addition">
                         </div>
                         <div class="login-form">
                             <label for="streetname">Streetname</label>
