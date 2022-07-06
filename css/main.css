@@ -226,13 +226,55 @@ header {
 	justify-content: space-between;
 }
 .banner a i {
-	margin-top: 4px;
+	margin-top: 4xpx;
 }
 .p-header {
 	font-size: 24px;
 	font-weight: 800;
 }
 
+
+
+.login-body {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+.login {
+	position: relative;
+	padding: 100px 50px;
+	width: fit-content;
+	text-align: center;
+	background: rgba(173, 216, 230, 0.5);
+	/* background: linear-gradient(90deg, rgba(10, 102, 215, 0.3), rgba(0, 0, 0, 0.1)); */
+}
+.login::before {
+	content: "";
+	background: #04aea0;
+	width: 80px;
+	height: 100%;
+	border-radius: 10px 0 0 10px;
+	position: absolute;
+	right: 100%;
+	top: 0;
+}
+.login h2 {
+	color: #04aea0;
+	font-size: 28px;
+}
+.login p {
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+}
+.login a {
+	display: inline;
+	color: #04aea0;
+	text-decoration: underline;
+}
+.login p.a-ref {
+	margin-top: 10px;
+}
 
 
 /* ==========================================================================

@@ -12,12 +12,26 @@
     require_once 'backend/conn.php'; 
     require_once 'header.php'; 	
     ?>
-
-
-
-
-
-
+    <div class="login-body">
+        <div class="login">
+            <h2>User Login</h2>
+            <p>Welcome</p>
+            <form action="backend/loginController.php" method="POST">
+                <div class="login-form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="login-form">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="login-form">
+                    <input type="submit" value="Login">
+                    <p class="a-ref">Create Account? Click <a href="<?php echo $base_url; ?>/register.php">here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
