@@ -251,8 +251,7 @@ header {
 	padding: 100px 50px;
 	width: fit-content;
 	text-align: center;
-	background: rgba(173, 216, 230, 0.5);
-	/* background: linear-gradient(90deg, rgba(10, 102, 215, 0.3), rgba(0, 0, 0, 0.1)); */
+	background: rgba(168, 218, 235, 0.5);
 }
 .login::before {
 	content: "";
@@ -314,10 +313,19 @@ header {
 }
 .login .form-flex {
 	display: flex;
+}
+.login .form-flex .split {
+	margin-right: 50px;
+	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 }
-
+.login input.addition {
+	width: 60px;
+}
+.login input.house-num {
+	width: 173px;
+}
 
 
 

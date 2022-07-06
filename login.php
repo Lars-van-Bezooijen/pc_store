@@ -36,18 +36,20 @@ if(isset($_SESSION['user_id']))
             <p>Welcome</p>
             <form action="backend/loginController.php" method="POST">
                 <div class="form-flex">
-                    <div class="login-form">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="yourmail@mail.com">
-                    </div>
-                    <div class="login-form">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required placeholder="password">
+                    <div class="split">
+                        <div class="login-form">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="yourmail@mail.com">
+                        </div>
+                        <div class="login-form">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required placeholder="password">
+                        </div>
                     </div>
                 </div>         
                 <div class="login-form">
                     <input type="submit" value="Login">
-                    <p class="a-ref">Create Account? Click <a href="<?php echo $base_url; ?>/register.php">here</a></p>
+                    <p class="a-ref">Create account? Click <a href="<?php echo $base_url; ?>/register.php">here</a></p>
                 </div>
             </form>
         </div>
