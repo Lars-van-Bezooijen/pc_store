@@ -28,9 +28,29 @@
 						<a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>	
 					</div>
 					<div class="info">
-					<a class="a-underline" href="<?php echo $base_url; ?>/login.php">Login</a>
-					<p class="p-space">|</p>
-					<a class="a-underline" href="<?php echo $base_url; ?>/register.php">Register</a>
+						<?php
+						if(isset($_SESSION['user_id']))
+						{
+							$query = "SELECT * FROM users WHERE id = :id";
+							$statement = $conn->prepare($query);
+							$statement->execute([":id" => $_SESSION['user_id']]);
+							$user = $statement->fetch(PDO::FETCH_ASSOC);
+							?>
+							<p>Welcome, <?php echo $user['first_name']; ?></p>
+							<p class="p-space">|</p>
+							<a class="a-underline" href="<?php echo $base_url; ?>/logout.php">Logout</a>
+							<?php
+						}
+						else
+						{
+							?>
+							<a class="a-underline" href="<?php echo $base_url; ?>/login.php">Login</a>
+							<p class="p-space">|</p>
+							<a class="a-underline" href="<?php echo $base_url; ?>/register.php">Register</a>
+							<?php
+						}
+						?>
+						
 					</div>
 				</div>
 			</div>
