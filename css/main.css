@@ -284,17 +284,16 @@ header {
 .login p.a-ref {
 	margin-top: 10px;
 }
-.login input[type=submit] {
-	color: #fff;
-	font-weight: bold;
-	margin-top: 16px;
-	background: #04aea0;
-	border: none;
-	padding: 8px 20px;
-	border-radius: 5px;
-}
 .login .login-form {
+	width: 100%;
 	margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+.login .login-form.column {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 .login input {
 	padding: 2px;
@@ -306,6 +305,16 @@ header {
 }
 .login input:focus {
 	outline: none;
+}
+.login input[type=submit] {
+	color: #fff;
+	font-weight: bold;
+	margin-top: 16px;
+	background: #04aea0;
+	border: none;
+	width: fit-content;
+	padding: 8px 25px;
+	border-radius: 5px;
 }
 .login input[type=submit]:hover {
 	background: #02998c;

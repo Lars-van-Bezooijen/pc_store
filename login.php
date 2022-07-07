@@ -47,7 +47,7 @@ if(isset($_SESSION['user_id']))
                         </div>
                     </div>
                 </div>         
-                <div class="login-form">
+                <div class="login-form column">
                     <input type="submit" value="Login">
                     <p class="a-ref">Create account? Click <a href="<?php echo $base_url; ?>/register.php">here</a></p>
                 </div>
