@@ -18,15 +18,23 @@ if(isset($_SESSION['user_id']))
     require_once 'backend/conn.php'; 
     require_once 'header.php'; 	
 
-    if(isset($_SESSION['no_account']) || isset($_SESSION['wrong_pass']))
+    if(isset($_SESSION['error_login']))
     {
-        $_SESSION['no_account'] = null;
-        $_SESSION['wrong_pass'] = null;
         ?>
         <div class="error">
-            <p>Error: inputs do not match</p>
+            <p><?php echo $_SESSION['error_login'];?></p>
         </div>
         <?php
+        $_SESSION['error_login'] = null;
+    }
+    if(isset($_SESSION['success']))
+    {
+        ?>
+        <div class="success">
+            <p><?php echo $_SESSION['success'];?></p>
+        </div>
+        <?php
+        $_SESSION['success'] = null;
     }
     ?>
     

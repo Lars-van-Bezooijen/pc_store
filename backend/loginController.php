@@ -1,6 +1,11 @@
 <?php 
 session_start();
 
+if(isset($_SESSION['user_id']))
+{
+    header("location: $base_url/index.php");
+}
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -11,13 +16,13 @@ $statement->execute([":email" => $email]);
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 if($statement->rowCount() < 1){
-    $_SESSION['no_account'] = true;
+    $_SESSION['error_login'] = "Error: inputs do not match";
     header("location: ../login.php");
     return;
 }
 
 if(!password_verify($password, $user['password'])){
-    $_SESSION['no_account'] = true;
+    $_SESSION['error_login'] = "Error: inputs do not match";
     header("location: ../login.php");
     return;
 }

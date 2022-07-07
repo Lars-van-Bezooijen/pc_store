@@ -28,13 +28,23 @@ if(isset($_SESSION['user_id']))
         </div>
         <?php
     }
+
+    if(isset($_SESSION['error_register']))
+    {
+        ?>
+        <div class="error">
+            <p><?php echo $_SESSION['error_register'];?></p>
+        </div>
+        <?php
+        $_SESSION['error_register'] = null;
+    }
     ?>
     
     <div class="login-body">
         <div class="login">
             <h2>User Registration</h2>
             <p>Welcome</p>
-            <form action="backend/loginController.php" method="POST">
+            <form action="backend/registerController.php" method="POST">
                 <div class="form-flex">
                     <div class="split">
                         <div class="login-form">
@@ -74,7 +84,7 @@ if(isset($_SESSION['user_id']))
                         </div>
                         <div class="login-form">
                             <label for="place">Place</label>
-                            <input type="text" id="place" name="zipplacecode" required placeholder="place">
+                            <input type="text" id="place" name="place" required placeholder="place">
                         </div>
                     </div>
                </div>         
