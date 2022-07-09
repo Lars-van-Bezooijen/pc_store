@@ -350,9 +350,9 @@ header {
 }
 .grid {
 	display: grid;
-	gap: 30px;
+	gap: 30px 80px;
 	padding: 50px 20px;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 }
 .product {
 	padding: 10px 0;
@@ -361,6 +361,7 @@ header {
 }
 .product img {
 	width: 80px;
+	height: 80px;
 	margin-right: 10px;
 }
 .product .info {
@@ -375,8 +376,8 @@ header {
 	font-weight: bold;
 	border-bottom: 1px solid transparent;
 }
-.product .info a.underline:hover {
-	border-bottom: 1px solid black;
+.side {
+	position: relative;
 }
 .side p.price {
 	margin-left: 5px;
@@ -384,10 +385,45 @@ header {
 	color: #fff;
 	font-weight: bold;
 	background: #04aea0;
-	width: 100px;
+	width: 110px;
 	border-radius: 3px;
 	padding: 6px 0;
 	text-align: center;
+}
+.side p.price_off {
+	width: fit-content;
+	text-align: right;
+	margin: 5px 0;
+	color: gray;
+	position: relative;
+	left: 100%;
+	transform: translate(-100%)
+}
+.side p.price_off::after {
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	content: "";
+	background: rgb(88, 88, 88);
+	width: 100%;
+	height: 1px;
+	transform-origin: 0%;
+	transform: rotate(-0.04turn);
+}
+.product .image {
+	position: relative;
+}
+p.sale {
+	position: absolute;
+	background: red;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 1px 32px 1px 4px;
+	border-radius: 0 5px 5px 0;
+	bottom: 0px;
+	left: 0;
+	
 }
 
 /* Messages */
