@@ -379,6 +379,7 @@ header {
 	border-bottom: 1px solid black;
 }
 .side p.price {
+	margin-left: 5px;
 	font-size: 20px;
 	color: #fff;
 	font-weight: bold;

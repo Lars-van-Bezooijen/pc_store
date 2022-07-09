@@ -20,6 +20,7 @@
 					<label for="category">Category</label>
 					<select name="category" id="category" value="">
 						<option hidden disabled selected value> -- choose category -- </option>
+						<option value="0">All</option>
 						<?php
 						$query = "SELECT * FROM categories";
 						$statement = $conn->prepare($query);
@@ -39,22 +40,32 @@
 		</div>	
 		
 		<div class="grid">
-			<?php
+			<?php	
 			if(isset($_GET['category']))
 			{
-				$category = $_GET['category'];
+				if($_GET['category'] == 0)
+				{
+					$category = "categories.id";
+				}
+				else
+				{
+					$category = $_GET['category'];
+				}
+				
 			}
 			else
 			{
 				$category = "categories.id";
 			}
-			$query = "SELECT products.id, products.name, products.image, products.stock, products.price, products.price_off, categories.type
+			
+			$query = "SELECT products.*, categories.type
 			FROM products INNER JOIN categories ON products.category = categories.id WHERE categories.id = $category";
 			$statement = $conn->prepare($query);
 			$statement->execute([]);
 			$products = $statement->fetchAll(PDO::FETCH_ASSOC);
 			foreach($products as $product)
 			{
+				$price_format = number_format($product['price'], 2, ',', '.');
 				?>
 				<div class="product">
 					<a href="product.php?id=<?php echo $product['id']; ?>">
@@ -68,7 +79,7 @@
 						</div>
 						<div class="side">
 							<a href="product.php?id=<?php echo $product['id']; ?>">
-								<p class="price"><?php echo $product['price']; ?></p>
+								<p class="price"><?php echo $price_format; ?></p>
 							</a>
 							<p>CART BTN</p>
 							<!-- <i class="fa-solid fa-cart-shopping"></i> -->
