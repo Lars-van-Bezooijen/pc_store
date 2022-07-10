@@ -429,6 +429,11 @@ p.stock {
 	color: red;
 }
 
+/* Pagination */
+.page {
+	color: black;
+}
+
 /* Messages */
 .error {
 	display: fixed;

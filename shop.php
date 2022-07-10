@@ -55,9 +55,9 @@
 		<div class="grid">
 			<?php
 
-			$query = 
-				"SELECT products.*, categories.type
-				FROM products 
+			$queryStart = "SELECT products.*, categories.type";
+			$queryEnd =
+				" FROM products 
 				INNER JOIN categories ON products.category = categories.id";
 				
 			// Check category filter
@@ -72,7 +72,7 @@
 				{
 					$category = " WHERE categories.id = $cat";
 				}	
-				$query .= "$category";
+				$queryEnd .= "$category";
 			}
 			else
 			{
@@ -94,9 +94,32 @@
 				{
 					$price_sort = "";
 				}
-				$query .= "$price_sort";
+				$queryEnd .= "$price_sort";
 			}
-			$statement = $conn->prepare($query);
+
+			// Pagination
+			$limit = 2;
+
+			$productCount = "SELECT COUNT(*) " . $queryEnd;
+			$statement = $conn->prepare($productCount);
+			$statement->execute([]);
+			$entries = $statement->fetchColumn();
+
+			$totalPages = ceil($entries / $limit);
+			if(!isset($_GET['page'])) 
+			{  
+				$page_number = 1;  
+			} 
+			else 
+			{  
+				$page_number = $_GET['page'];  
+			}  
+
+			$offset = ($page_number - 1) * $limit;
+			$queryEnd .= " LIMIT $offset, $limit";
+			
+			// Prepare product query
+			$statement = $conn->prepare($queryStart . $queryEnd);
 			$statement->execute([]);
 			$products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -170,23 +193,21 @@
 				<?php
 			}
 			?>
-		</div>
+		</div> <!-- End of grid -->
+	</div> <!-- End of container -->
+
+	<!-- Page numbers -->
+	<div class="container">
+		<?php
+		for($i=1; $i<$totalPages + 1; $i++)
+		{
+			?>
+			<a class="page" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+			<?php
+		}
+		?>
 	</div>
 	<?php require_once 'scripts.php'; ?>
 </body>
 
 </html>
-
-<?php
-if(!isset ($_GET['page'])) 
-{  
-	$page_number = 1;  
-} 
-else 
-{  
-	$page_number = $_GET['page'];  
-}  
-
-$limit = 4;
-$initial_page = ($page_number-1) * $limit;
-?>
