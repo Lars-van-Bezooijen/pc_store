@@ -15,7 +15,9 @@
 
 	<div class="container flex">	
 		<div class="filter">
+			<!-- Filters form -->
 			<form action="" method="GET">
+				<!-- Category filter -->
 				<div class="filter-group">
 					<label for="category">Category</label>
 					<select name="category" id="category" value="">
@@ -35,6 +37,7 @@
 						?>
 					</select>
 				</div>
+				<!-- Price high-low filter -->
 				<div class="filter-group">
 					<label for="price_sort">Price</label>
 					<select name="price_sort" id="price_sort">
@@ -43,15 +46,18 @@
 						<option value="1">High to low</option>
 						<option value="2">Low to high</option>
 					</select>
-					<div class="price-filter">
-						<input type="number" name="price_min" id="price_min">
-						<input type="number" name="price_max" id="price_max">
-					</div>	
+				</div>
+				<div class="filter-group">
+					<label for="price_min">Min</label>
+					<input type="number" name="price_min" id="price_min" min="0">
+					<label for="price_max">Max</label>
+					<input type="number" name="price_max" id="price_max" min="0">
 				</div>
 				<input type="submit" value="Verzend">
 			</form>
 		</div>	
 		
+		<!-- Product start -->
 		<div class="grid">
 			<?php
 
@@ -79,7 +85,7 @@
 				$category = "categories.id";
 			}
 
-			// Check price sorting
+			// Check price sorting (Must be last added to query of filters)
 			if(isset($_GET['price_sort']))
 			{
 				if($_GET['price_sort'] == 1)
@@ -191,7 +197,7 @@
 					</div>
 				</div>
 				<?php
-			}
+			} // End of product loop
 			?>
 		</div> <!-- End of grid -->
 	</div> <!-- End of container -->
@@ -201,6 +207,10 @@
 		<?php
 		for($i=1; $i<$totalPages + 1; $i++)
 		{
+			if(isset($_GET['page']))
+			{
+				$pageUrl = "page=" . $_GET['page'];
+			}
 			?>
 			<a class="page" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 			<?php
