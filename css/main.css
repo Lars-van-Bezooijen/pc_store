@@ -419,11 +419,14 @@ p.sale {
 	color: white;
 	font-weight: bold;
 	font-size: 14px;
-	padding: 1px 32px 1px 4px;
+	padding: 1px 4px 1px 4px;
 	border-radius: 0 5px 5px 0;
 	bottom: 0px;
 	left: 0;
-	
+}
+p.stock {
+	background: none;
+	color: red;
 }
 
 /* Messages */

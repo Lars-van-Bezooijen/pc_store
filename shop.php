@@ -118,11 +118,17 @@
 							<img src="img/products/<?php echo $product['image'];?>" alt="">
 						</a>
 						<?php
-						if($product['price_off'] != 0)
+						if($product['stock'] > 1)
 						{
-							?>
-							<p class="sale">SALE</p>
-							<?php
+							if($product['price_off'] != 0)
+							{
+								if($sale < -10)
+								{
+									?>
+									<p class="sale">HIGH SALE</p>
+									<?php
+								}
+							}
 						}
 						?> 
 					</div>
@@ -132,6 +138,15 @@
 							<a class="underline" href="product.php?id=<?php echo $product['id']; ?>">
 								<p class="title"><?php echo $product['name']; ?></p>
 							</a>
+							<?php
+							if($product['stock'] < 1)
+							{
+								?>
+								<p class="sale stock"> OUT OF STOCK</p>
+								<?php
+							}
+							?>
+							
 						</div>
 						<div class="side">
 							<a href="product.php?id=<?php echo $product['id']; ?>">
@@ -161,3 +176,17 @@
 </body>
 
 </html>
+
+<?php
+if(!isset ($_GET['page'])) 
+{  
+	$page_number = 1;  
+} 
+else 
+{  
+	$page_number = $_GET['page'];  
+}  
+
+$limit = 4;
+$initial_page = ($page_number-1) * $limit;
+?>
