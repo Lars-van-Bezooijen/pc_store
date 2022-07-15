@@ -75,10 +75,14 @@
 				}
 			
 				?>
-				<a class="a-underline <?php if(isset($index)){echo "colored";}?>" href="<?php echo $base_url; ?>/index.php">Home</a>
-				<a class="a-underline <?php if(isset($shop)){echo "colored";}?>" href="<?php echo $base_url; ?>/shop.php">Shop</a>
-				<a class="a-underline <?php if(isset($about)){echo "colored";}?>" href="<?php echo $base_url; ?>/about.php">About</a>
-				<a class="a-underline <?php if(isset($contact)){echo "colored";}?>" href="<?php echo $base_url; ?>/contact.php">Contact</a>
+				<div class="nav-split">
+					<a class="a-underline <?php if(isset($index)){echo "colored";}?>" href="<?php echo $base_url; ?>/index.php">Home</a>
+					<a class="a-underline <?php if(isset($shop)){echo "colored";}?>" href="<?php echo $base_url; ?>/shop.php">Shop</a>
+					<a class="a-underline <?php if(isset($about)){echo "colored";}?>" href="<?php echo $base_url; ?>/about.php">About</a>
+					<a class="a-underline <?php if(isset($contact)){echo "colored";}?>" href="<?php echo $base_url; ?>/contact.php">Contact</a>
+				</div>
+
+				<div class="nav-split">
 				<?php
 				if(isset($_SESSION['user_id']))
 				{
@@ -88,16 +92,28 @@
 					$user = $statement->fetch(PDO::FETCH_ASSOC);
 					if($user['user_level'] == 1)
 					{
-						if(basename($_SERVER['PHP_SELF']) == "admin.php")
+						if(basename($_SERVER['PHP_SELF']) == "create.php")
 						{
-							$admin = true;
+							$create = true;
+						}
+						if(basename($_SERVER['PHP_SELF']) == "edit.php")
+						{
+							$edit = true;
+						}
+						if(basename($_SERVER['PHP_SELF']) == "orders.php")
+						{
+							$orders = true;
 						}
 						?>
-						<a class="a-underline <?php if(isset($admin)){echo "colored";}?>" href="<?php echo $base_url; ?>/admin.php">Admin Panel</a>
+						<a class="a-none" href="">Admin ></a>
+						<a class="a-underline <?php if(isset($create)){echo "colored";}?>" href="<?php echo $base_url; ?>/create.php">Create</a>
+						<a class="a-underline <?php if(isset($edit)){echo "colored";}?>" href="<?php echo $base_url; ?>/edit.php">Edit</a>
+						<a class="a-underline <?php if(isset($orders)){echo "colored";}?>" href="<?php echo $base_url; ?>/orders.php">Orders</a>
 						<?php
 					}
 				}
 				?>
+				</div>
 			</div>
 			<div class="fill"></div>
 		</div>

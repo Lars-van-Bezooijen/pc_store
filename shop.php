@@ -47,12 +47,12 @@
 						<option value="2">Low to high</option>
 					</select>
 				</div>
-				<div class="filter-group">
+				<!-- <div class="filter-group">
 					<label for="price_min">Min</label>
 					<input type="number" name="price_min" id="price_min" min="0">
 					<label for="price_max">Max</label>
 					<input type="number" name="price_max" id="price_max" min="0">
-				</div>
+				</div> -->
 				<input type="submit" value="Verzend">
 			</form>
 		</div>	
@@ -102,27 +102,6 @@
 				}
 				$queryEnd .= "$price_sort";
 			}
-
-			// Pagination
-			$limit = 2;
-
-			$productCount = "SELECT COUNT(*) " . $queryEnd;
-			$statement = $conn->prepare($productCount);
-			$statement->execute([]);
-			$entries = $statement->fetchColumn();
-
-			$totalPages = ceil($entries / $limit);
-			if(!isset($_GET['page'])) 
-			{  
-				$page_number = 1;  
-			} 
-			else 
-			{  
-				$page_number = $_GET['page'];  
-			}  
-
-			$offset = ($page_number - 1) * $limit;
-			$queryEnd .= " LIMIT $offset, $limit";
 			
 			// Prepare product query
 			$statement = $conn->prepare($queryStart . $queryEnd);
@@ -202,22 +181,7 @@
 		</div> <!-- End of grid -->
 	</div> <!-- End of container -->
 
-	<!-- Page numbers -->
-	<div class="container">
-		<?php
-		for($i=1; $i<$totalPages + 1; $i++)
-		{
-			if(isset($_GET['page']))
-			{
-				$pageUrl = "page=" . $_GET['page'];
-			}
-			?>
-			<a class="page" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-			<?php
-		}
-		?>
-	</div>
-	<?php require_once 'scripts.php'; ?>
+	<?php require_once 'scripts.php';?>
 </body>
 
 </html>
