@@ -19,7 +19,7 @@ if(isset($_SESSION['user_id']))
 
 <head>
 	<?php require_once 'head.php'; ?>
-	<title>PC Today - Login</title>
+	<title>PC Today - Create</title>
 </head>
 
 <body>
@@ -27,9 +27,18 @@ if(isset($_SESSION['user_id']))
     require_once 'backend/conn.php'; 
     require_once 'header.php'; 	
     ?>
+    <div class="container">
+        <div id="content" class="test">
+            <p><?php echo rand(0,100); ?></p>
+        </div>
+        <div class="no">
+            <button id="load_btn">Load me</button> 
+        </div>
+    </div>
     
 
-    <?php require_once 'scripts.php'; ?>
+    <?php require_once 'scripts.php';?>
+    <script src="js/reload.js"></script>
 </body>
 
 </html>
